@@ -1,0 +1,20 @@
+// Single source of truth for every URL in the Dynamic Prayer Card.
+// Change links here, never inside individual pages.
+window.PRAYER_CARD_CONFIG = {
+  siteUrl:          "https://millsonmission.com/",
+  cardUrl:          "https://millsonmission.com/card/",
+  prayUrl:          "https://millsonmission.com/pray/",
+  newsletterUrl:    "https://millsonmission.com/windmills/",
+  privacyUrl:       "https://millsonmission.com/privacy/",
+  sendingAgencyUrl: "https://SENDING-AGENCY-URL-TBD",
+  immUrl:           "https://imm.edu/",
+  assets: {
+    videoHevc: "/assets/portrait-loop.mp4",
+    videoWebm: "/assets/portrait-loop.webm",
+    greeting:  "/assets/greeting.mp3"
+  },
+  // Paste your Apps Script Web App URL here (ends in /exec)
+  appsScriptEndpoint: "https://script.google.com/macros/s/DEPLOYMENT-ID/exec",
+  // Paste your Cloudflare Turnstile SITE key here (the public one, never the secret)
+  turnstileSiteKey: "TURNSTILE-SITE-KEY-TBD"
+};
