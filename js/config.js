@@ -14,7 +14,7 @@ window.PRAYER_CARD_CONFIG = {
     greeting:  "/assets/greeting.mp3"
   },
   // Paste your Apps Script Web App URL here (ends in /exec)
-  appsScriptEndpoint: "https://script.google.com/macros/s/DEPLOYMENT-ID/exec",
+  appsScriptEndpoint: "https://script.google.com/macroshttps://script.google.com/macros/s/AKfycbw5TNJMypcwhFx509iWrorTQ1yPq9jHUI-uIfJlSzghQp630kZ7lsD1Bfp0oGnsdJ0V/exec",
   // Paste your Cloudflare Turnstile SITE key here (the public one, never the secret)
-  turnstileSiteKey: "TURNSTILE-SITE-KEY-TBD"
+  turnstileSiteKey: "0x4AAAAAAFg7atEJlEAIrw9O"
 };
