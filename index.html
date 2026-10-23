@@ -2,23 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mills on Mission</title>
-  <style>
-    :root { --bg: #ffffff; --text: #222222; --muted: #666666; color-scheme: light dark; }
-    @media (prefers-color-scheme: dark) { :root { --bg: #111111; --text: #eeeeee; --muted: #aaaaaa; } }
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center;
-           background: var(--bg); color: var(--text); font-family: Verdana, sans-serif; text-align: center; padding: 1.5rem; }
-    h1 { font-size: 1.8rem; margin: 0 0 .5rem; }
-    p { color: var(--muted); margin: .25rem 0; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mills On Mission | Sean Mills, missionary with IMM</title>
+  <meta name="description" content="Sean Mills, missionary with International Media Ministries in Spain.">
+  <meta name="theme-color" content="#121826">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Jost:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
-  <main>
-    <h1>Mills on Mission</h1>
-    <p>Thy kingdom come, Thy will be done in earth, as it is in heaven.</p>
-    <p>Matthew 6:10</p>
-    <p>Coming soon.</p>
+  <main class="home">
+    <div class="home-photo">
+      <img src="/assets/sean-portrait.jpg" alt="Portrait of Sean Mills" width="1200" height="1500">
+    </div>
+    <div class="home-body">
+      <a class="btn home-give" href="https://giving.ag.org/donate" target="_blank" rel="noopener">Give</a>
+      <div>
+        <h1 class="home-title">Mills On Mission</h1>
+        <p class="verse">“Your kingdom come, Your will be done, on earth as it is in heaven.” <cite>Matthew 6:10</cite></p>
+      </div>
+      <p class="bio">I’m Sean Mills, a missionary with International Media Ministries in Spain. I’m a native son of Seattle, Washington, but I grew up as a third culture kid in Ecuador. Now I’m on a quest to see His Kingdom come here on earth.</p>
+      <nav class="doors" aria-label="Main">
+        <a class="btn btn-secondary" href="/partnership/">Partnership</a>
+        <a class="btn btn-secondary" href="/roles/">Roles</a>
+        <a class="btn btn-secondary" href="/about/">More about me</a>
+        <a class="btn btn-primary" href="/pray/">Pray</a>
+      </nav>
+    </div>
   </main>
 </body>
 </html>

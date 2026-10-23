@@ -3,300 +3,116 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Pray for Sean | Mills on Mission</title>
+  <title>Pray for Sean | Mills On Mission</title>
   <meta name="description" content="Current prayer requests and answered prayers from Sean Mills.">
-  <script src="/js/config.js"></script>
-  <style>
-    :root {
-      --bg: #f7f8fa;          /* whitewash */
-      --surface: #ffffff;
-      --ink: #1d2430;
-      --muted: #5b6472;
-      --sky: #2e5e8c;         /* La Mancha sky */
-      --sky-press: #244b71;
-      --wheat: #9a7420;       /* answered prayers */
-      --line: #dfe3e9;
-      --field: #ffffff;
-      color-scheme: light dark;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #141b26; --surface: #1b2431; --ink: #e8ecf2; --muted: #a3adbb;
-        --sky: #6fa3d8; --sky-press: #8bb8e4; --wheat: #d9b45a; --line: #2c3746; --field: #101620;
-      }
-    }
-    * { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; }
-    body {
-      margin: 0; background: var(--bg); color: var(--ink);
-      font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      padding: env(safe-area-inset-top, 0) 0 env(safe-area-inset-bottom, 0);
-    }
-    main { max-width: 34rem; margin: 0 auto; padding: 2.25rem 1.25rem 2rem; }
-    .serif { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
-
-    header { margin-bottom: 1.75rem; }
-    .who { margin: 0 0 .35rem; color: var(--muted); font-size: .95rem; }
-    h1 { margin: 0; font-size: 2.35rem; line-height: 1.1; font-weight: 600; letter-spacing: -.01em; }
-    .verse { margin: .9rem 0 0; color: var(--muted); font-size: 1rem; line-height: 1.6; }
-    .verse cite { font-style: normal; white-space: nowrap; }
-
-    ol#requests { list-style: none; counter-reset: req; margin: 0 0 2rem; padding: 0; }
-    ol#requests li {
-      counter-increment: req; position: relative;
-      padding: 1rem 0 1rem 2.4rem; border-top: 1px solid var(--line);
-    }
-    ol#requests li:last-child { border-bottom: 1px solid var(--line); }
-    ol#requests li::before {
-      content: counter(req); position: absolute; left: 0; top: 1rem;
-      font-family: "Iowan Old Style", Georgia, serif; font-size: 1.35rem; line-height: 1.2; color: var(--sky);
-    }
-    ol#requests li.answered::before { color: var(--wheat); }
-    ol#requests li.note { padding-left: 0; color: var(--muted); }
-    ol#requests li.note::before { content: none; }
-    .r-title { margin: 0; font-size: 1.15rem; line-height: 1.35; font-weight: 600; }
-    .r-details { margin: .3rem 0 0; color: var(--muted); }
-    .r-tag { display: inline-block; margin-top: .4rem; font-size: .85rem; color: var(--wheat); font-weight: 600; }
-
-    form { display: grid; gap: .5rem; }
-    label { font-weight: 600; font-size: .95rem; }
-    .opt { font-weight: 400; color: var(--muted); }
-    input[type="text"], input[type="email"] {
-      width: 100%; font: inherit; color: var(--ink); background: var(--field);
-      border: 1px solid var(--line); border-radius: 10px; padding: .75rem .85rem; margin-bottom: .6rem;
-    }
-    input:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
-    .hint { margin: .2rem 0 0; color: var(--muted); font-size: .95rem; }
-    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-
-    #prayBtn {
-      margin-top: .75rem; width: 100%; min-height: 4.25rem; padding: 1rem 1.25rem;
-      font: 600 1.3rem/1.3 "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-      color: #fff; background: var(--sky); border: 0; border-radius: 14px; cursor: pointer;
-      transition: background-color .25s ease, transform .1s ease;
-    }
-    @media (prefers-color-scheme: dark) { #prayBtn { color: #0f1620; } }
-    #prayBtn:active { transform: scale(.985); background: var(--sky-press); }
-    #prayBtn:disabled { cursor: default; }
-    #prayBtn.sending { opacity: .75; }
-    #prayBtn.done { background: transparent; color: var(--wheat); border: 2px solid var(--wheat); font-size: 1.15rem; }
-    #status { min-height: 1.5em; margin: .4rem 0 0; color: var(--muted); font-size: .95rem; }
-    #status.error { color: #b3261e; }
-    @media (prefers-color-scheme: dark) { #status.error { color: #f2b8b5; } }
-
-    footer { margin-top: 2.5rem; color: var(--muted); font-size: .9rem; }
-    footer nav { display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; }
-    footer a { color: var(--sky); }
-    .privacy { margin-top: 1.25rem; font-size: .78rem; opacity: .75; }
-    .privacy a { color: inherit; }
-
-    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
-  </style>
+  <meta name="theme-color" content="#121826">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Jost:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
-  <main>
-    <header>
-      <p class="who">Sean Mills, on mission</p>
-      <h1 class="serif">Pray with me</h1>
-      <p class="verse serif">“Thy kingdom come, Thy will be done in earth, as it is in heaven.” <cite>Matthew 6:10</cite></p>
-    </header>
-
-    <ol id="requests" aria-live="polite">
+  <header class="site-header">
+    <a class="wordmark" href="/">Mills On Mission</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/partnership/">Partnership</a>
+      <a href="/roles/">Roles</a>
+      <a href="/about/">More about me</a>
+      <a href="/pray/" aria-current="page">Pray</a>
+      <a class="give" href="https://giving.ag.org/donate" target="_blank" rel="noopener">Give</a>
+    </nav>
+  </header>
+  <main class="page page--narrow">
+    <div class="intro">
+      <h1 class="page-title">Pray with me</h1>
+      <p class="verse">“Your kingdom come, Your will be done, on earth as it is in heaven.” <cite>Matthew 6:10</cite></p>
+    </div>
+    <ol class="requests" id="requests" aria-live="polite">
       <li class="note">Loading prayer requests…</li>
     </ol>
-
-    <form id="prayForm" novalidate>
+    <form class="form pray-box" id="prayForm" novalidate>
       <label for="name">Your name <span class="opt">(optional)</span></label>
-      <input id="name" name="name" type="text" autocomplete="name" maxlength="100">
-
+      <input id="name" type="text" autocomplete="name" maxlength="100">
       <label for="email">Email <span class="opt">(optional)</span></label>
       <p class="hint" id="emailHint">Want updates? Add your email to receive my newsletter, <em>Tilting at windMills</em>. Unsubscribe anytime.</p>
-      <input id="email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" aria-describedby="emailHint">
-
-      <div class="hp" aria-hidden="true">
-        <label for="website">Leave this empty</label>
-        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
-      </div>
-
+      <input id="email" type="email" autocomplete="email" inputmode="email" maxlength="254" aria-describedby="emailHint">
+      <div class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" type="text" tabindex="-1" autocomplete="off"></div>
       <div id="turnstile"></div>
-      <button id="prayBtn" type="submit">Pray for Sean</button>
-      <p id="status" role="status"></p>
+      <button class="btn btn-primary pray-btn" id="prayBtn" type="submit">Pray for Sean</button>
+      <p class="status" id="status" role="status"></p>
     </form>
-
-    <footer>
-      <nav>
-        <a href="/">millsonmission.com</a>
-        <a href="https://imm.edu/" target="_blank" rel="noopener">International Media Ministries</a>
-      </nav>
-      <p class="privacy">Your name and email are used only for prayer updates and are never shared. <a href="/privacy/">Privacy (GDPR)</a></p>
-    </footer>
+    <p class="fine">Your name and email are used only for prayer updates and are never shared. <a href="/privacy/">Privacy (GDPR)</a></p>
   </main>
-
+  <footer class="site-footer">
+    <p>“Your kingdom come, Your will be done, on earth as it is in heaven.” Matthew 6:10</p>
+    <nav aria-label="Footer">
+      <a href="https://imm.edu/" target="_blank" rel="noopener">International Media Ministries</a>
+      <a href="https://agwm.org/" target="_blank" rel="noopener">AGWM</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </footer>
+  <script src="/js/config.js"></script>
+  <script src="/js/forms.js"></script>
   <script>
     (function () {
-      const CFG = window.PRAYER_CARD_CONFIG || {};
-      const ENDPOINT = CFG.appsScriptEndpoint || '';
-      const endpointReady = ENDPOINT && ENDPOINT.indexOf('DEPLOYMENT-ID') === -1;
-      const SITE_KEY = CFG.turnstileSiteKey || '';
-      const turnstileOn = SITE_KEY && SITE_KEY.indexOf('TBD') === -1;
-      const source = new URLSearchParams(location.search).get('src') === 'card' ? 'card' : 'web';
-
-      const list = document.getElementById('requests');
-      const form = document.getElementById('prayForm');
-      const nameEl = document.getElementById('name');
-      const emailEl = document.getElementById('email');
-      const hpEl = document.getElementById('website');
-      const btn = document.getElementById('prayBtn');
-      const statusEl = document.getElementById('status');
-      let tsToken = null;
-      let widgetId = null;
-
-      // One anonymous id per browser, used only to stop accidental double-taps from logging twice.
-      function clientId() {
-        try {
-          let id = localStorage.getItem('mom_cid');
-          if (!id) {
-            id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2);
-            localStorage.setItem('mom_cid', id);
-          }
-          return id;
-        } catch (e) { return ''; }
-      }
+      var source = new URLSearchParams(location.search).get('src') === 'card' ? 'card' : 'web';
+      var list = document.getElementById('requests');
+      var form = document.getElementById('prayForm');
+      var nameEl = document.getElementById('name');
+      var emailEl = document.getElementById('email');
+      var hpEl = document.getElementById('website');
+      var btn = document.getElementById('prayBtn');
+      var statusEl = document.getElementById('status');
+      var bot = MOM.botCheck(document.getElementById('turnstile'));
 
       function note(text) {
         list.innerHTML = '';
-        const li = document.createElement('li');
-        li.className = 'note';
-        li.textContent = text;
+        var li = document.createElement('li');
+        li.className = 'note'; li.textContent = text;
         list.appendChild(li);
       }
-
       function render(items) {
         if (!items.length) { note('New prayer requests are on the way. Thank you for praying in the meantime.'); return; }
         list.innerHTML = '';
         items.forEach(function (it) {
-          const li = document.createElement('li');
+          var li = document.createElement('li');
           if (it.type === 'answered') li.className = 'answered';
-          const h = document.createElement('p');
-          h.className = 'r-title';
-          h.textContent = it.title;
-          li.appendChild(h);
-          if (it.details) {
-            const p = document.createElement('p');
-            p.className = 'r-details';
-            p.textContent = it.details;
-            li.appendChild(p);
-          }
-          if (it.type === 'answered') {
-            const t = document.createElement('span');
-            t.className = 'r-tag';
-            t.textContent = 'Answered' + (it.date ? ', ' + it.date : '');
-            li.appendChild(t);
-          }
+          var t = document.createElement('p'); t.className = 'r-title'; t.textContent = it.title; li.appendChild(t);
+          if (it.details) { var d = document.createElement('p'); d.className = 'r-details'; d.textContent = it.details; li.appendChild(d); }
+          if (it.type === 'answered') { var g = document.createElement('span'); g.className = 'r-tag'; g.textContent = 'Answered' + (it.date ? ', ' + it.date : ''); li.appendChild(g); }
           list.appendChild(li);
         });
       }
+      if (!MOM.ready) note('Prayer requests are coming soon.');
+      else MOM.getRequests().then(render).catch(function () { note('Prayer requests didn’t load. Refresh the page to try again; you can still press Pray below.'); });
 
-      async function loadRequests() {
-        if (!endpointReady) { note('Prayer requests are coming soon.'); return; }
-        try {
-          const res = await fetch(ENDPOINT + '?action=requests');
-          const data = await res.json();
-          if (!data.ok) throw new Error('load failed');
-          render(data.items || []);
-        } catch (e) {
-          note('Prayer requests didn’t load. Refresh the page to try again; you can still press Pray below.');
-        }
+      function fail(msg) {
+        btn.disabled = false; btn.classList.remove('sending'); btn.textContent = 'Pray for Sean';
+        statusEl.className = 'status error'; statusEl.textContent = msg;
+        bot.reset();
       }
-
-      // Cloudflare Turnstile: invisible unless Cloudflare needs a quick check.
-      window.momTurnstileReady = function () {
-        widgetId = window.turnstile.render('#turnstile', {
-          sitekey: SITE_KEY,
-          appearance: 'interaction-only',
-          callback: function (t) { tsToken = t; },
-          'expired-callback': function () { tsToken = null; },
-          'error-callback': function () { tsToken = null; }
-        });
-      };
-      if (turnstileOn) {
-        const s = document.createElement('script');
-        s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=momTurnstileReady';
-        s.async = true; s.defer = true;
-        document.head.appendChild(s);
-      }
-      function waitForToken(ms) {
-        return new Promise(function (resolve) {
-          const start = Date.now();
-          (function check() {
-            if (tsToken) return resolve(tsToken);
-            if (Date.now() - start > ms) return resolve('');
-            setTimeout(check, 200);
-          })();
-        });
-      }
-
-      function resetButton(msg) {
-        btn.disabled = false;
-        btn.classList.remove('sending');
-        btn.textContent = 'Pray for Sean';
-        statusEl.className = 'error';
-        statusEl.textContent = msg;
-        if (turnstileOn && window.turnstile && widgetId !== null) { window.turnstile.reset(widgetId); tsToken = null; }
-      }
-
       form.addEventListener('submit', async function (ev) {
         ev.preventDefault();
         if (btn.disabled) return;
-        statusEl.className = '';
-        statusEl.textContent = '';
-
-        const email = emailEl.value.trim();
-        if (email && !emailEl.checkValidity()) {
-          statusEl.className = 'error';
-          statusEl.textContent = 'Check the email address, or leave it blank.';
-          emailEl.focus();
-          return;
-        }
-        if (!endpointReady) { resetButton('Praying is not switched on yet. Please check back soon.'); return; }
-
-        btn.disabled = true;
-        btn.classList.add('sending');
-        btn.textContent = 'Sending…';
-
+        statusEl.className = 'status'; statusEl.textContent = '';
+        var email = emailEl.value.trim();
+        if (email && !emailEl.checkValidity()) { fail('Check the email address, or leave it blank.'); emailEl.focus(); return; }
+        if (!MOM.ready) { fail('Praying is not switched on yet. Please check back soon.'); return; }
+        btn.disabled = true; btn.classList.add('sending'); btn.textContent = 'Sending…';
         try {
-          const token = turnstileOn ? await waitForToken(8000) : '';
-          if (turnstileOn && !token) throw new Error('bot_check');
-          const res = await fetch(ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify({
-              site: 'millsonmission.com',
-              name: nameEl.value.trim(),
-              email: email,
-              source: source,
-              clientId: clientId(),
-              token: token,
-              website: hpEl.value
-            })
-          });
-          const data = await res.json();
-          if (!data.ok) throw new Error(data.error || 'failed');
-
-          btn.classList.remove('sending');
-          btn.classList.add('done');
+          var token = MOM.turnstileOn ? await bot.getToken(8000) : '';
+          if (MOM.turnstileOn && !token) throw new Error('bot_check');
+          await MOM.post({ event: 'pray', name: nameEl.value.trim(), email: email, source: source, token: token, website: hpEl.value });
+          btn.classList.remove('sending'); btn.classList.add('done');
           btn.textContent = 'Thank you for praying! I’ve been notified.';
-          nameEl.disabled = true;
-          emailEl.disabled = true;
+          nameEl.disabled = true; emailEl.disabled = true;
           statusEl.textContent = email ? 'You’re on the list for Tilting at windMills.' : '';
         } catch (e) {
-          if (e.message === 'bad_email') resetButton('Check the email address, or leave it blank.');
-          else if (e.message === 'bot_check' || e.message === 'bot_check_failed') resetButton('A quick security check didn’t finish. Press Pray for Sean again.');
-          else resetButton('Your prayer didn’t send. Check your connection and press Pray for Sean again.');
+          if (e.message === 'bad_email') fail('Check the email address, or leave it blank.');
+          else if (e.message === 'bot_check' || e.message === 'bot_check_failed') fail('A quick security check didn’t finish. Press Pray for Sean again.');
+          else fail('Your prayer didn’t send. Check your connection and press Pray for Sean again.');
         }
       });
-
-      loadRequests();
     })();
   </script>
 </body>
