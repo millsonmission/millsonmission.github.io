@@ -37,7 +37,7 @@
       <p class="hint" id="emailHint">Want updates? Add your email to receive my newsletter, <em>Tilting at windMills</em>. Unsubscribe anytime.</p>
       <input id="email" type="email" autocomplete="email" inputmode="email" maxlength="254" aria-describedby="emailHint">
       <div class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" type="text" tabindex="-1" autocomplete="off"></div>
-      <div id="turnstile"></div>
+      <div id="prayTurnstile"></div>
       <button class="btn btn-primary pray-btn" id="prayBtn" type="submit">Pray for Sean</button>
       <p class="status" id="status" role="status"></p>
     </form>
@@ -64,7 +64,7 @@
       var hpEl = document.getElementById('website');
       var btn = document.getElementById('prayBtn');
       var statusEl = document.getElementById('status');
-      var bot = MOM.botCheck(document.getElementById('turnstile'));
+      var bot = MOM.botCheck(document.getElementById('prayTurnstile'));
 
       function note(text) {
         list.innerHTML = '';
