@@ -8,6 +8,12 @@
   var apiRequested = false;
   var pending = [];
 
+  // The real Turnstile API, or null. (A page element with id="turnstile" would also appear as
+  // window.turnstile, so check for the render function rather than just the name.)
+  function tsApi() {
+    return (window.turnstile && typeof window.turnstile.render === 'function') ? window.turnstile : null;
+  }
+
   // One anonymous id per browser, used only to stop double-taps from logging twice.
   function clientId() {
     try {
@@ -35,7 +41,7 @@
     var st = { token: null, id: null };
     if (!tsOn || !el) return { getToken: function () { return Promise.resolve(''); }, reset: function () {} };
     function render() {
-      st.id = window.turnstile.render(el, {
+      st.id = tsApi().render(el, {
         sitekey: SITE_KEY,
         appearance: 'interaction-only',
         callback: function (t) { st.token = t; },
@@ -43,7 +49,7 @@
         'error-callback': function () { st.token = null; }
       });
     }
-    if (window.turnstile) render(); else { pending.push(render); loadTurnstile(); }
+    if (tsApi()) render(); else { pending.push(render); loadTurnstile(); }
     return {
       getToken: function (ms) {
         return new Promise(function (resolve) {
@@ -56,7 +62,7 @@
         });
       },
       reset: function () {
-        if (window.turnstile && st.id !== null) window.turnstile.reset(st.id);
+        if (tsApi() && st.id !== null) tsApi().reset(st.id);
         st.token = null;
       }
     };
