@@ -15,7 +15,7 @@
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: env(safe-area-inset-top, 0px); }
 body {
   margin: 0; min-height: 100vh; color: var(--ivory-200);
-  background-color: var(--night-800);
+  background-color: var(--night-900);
   background-image: radial-gradient(ellipse at 78% 0%, var(--navy-600) 0%, var(--night-800) 45%, var(--night-900) 100%);
   background-attachment: fixed;
   font: 18px/1.6 var(--font-sans);
@@ -134,7 +134,7 @@ h1, h2, h3, p { margin: 0; }
 .give-actions .btn { width: 100%; }
 .give-actions .btn-primary { min-height: 60px; font-size: 18px; }
 .secure-note { font-size: 14px; color: var(--muted-400); }
-.touch-panel { max-width: 560px; }
+.touch-panel { max-width: 560px; width: 100%; margin: 0 auto; }
 .give-actions p { color: #e0cfc6; }
 
 /* ---------- Give reminder pop-up ---------- */
@@ -154,6 +154,19 @@ h1, h2, h3, p { margin: 0; }
 @media (max-width: 480px) { .give-dialog-body { padding: 24px 20px 20px; } .give-dialog-actions { grid-template-columns: 1fr; } }
 
 /* ---------- Partners ---------- */
+.partners-section { align-items: center; text-align: center; margin-top: 16px; }
+.partners-section .partners { justify-content: center; }
+.intro-logo { margin-top: 8px; }
+.intro-logo .partner-logo img { height: 44px; }
+.facts--three { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.facts--three li { font-size: 19px; color: var(--ivory-200); }
+.facts-more { align-self: flex-start; min-height: 44px; font-size: 15px; }
+.footer-nav { align-items: center; gap: 12px 28px; }
+.footer-logo { display: inline-flex; align-items: center; min-height: 44px; opacity: 0.85; }
+.footer-logo:hover { opacity: 1; }
+.footer-logo img { height: 26px; width: auto; }
+.footer-logo.partner-logo--stacked img { height: 40px; }
+.footer-text { display: inline-flex; align-items: center; min-height: 44px; }
 .partners { display: flex; flex-wrap: wrap; gap: 28px 48px; align-items: center; }
 .partner-logo { display: inline-flex; align-items: center; min-height: 52px; padding: 4px 0; }
 .partner-logo img { height: 48px; width: auto; }

@@ -33,33 +33,44 @@
     </div>
     <section class="intro" aria-labelledby="factsHeading">
       <h2 class="heading" id="factsHeading">A few things about me</h2>
-      <ul class="facts">
+      <ul class="facts facts--three" id="facts" aria-live="polite">
         <li>Proud nerd, geek and gamer</li>
         <li>Avid reader of fantasy, myths and legends</li>
         <li>Chef at heart</li>
-        <li>World traveler: at least one night in all 50 states and 25 countries</li>
-        <li>Lover of stories</li>
-        <li>Coffee, tea and hot chocolate, all of them</li>
-        <li>Going out for breakfast is my favorite</li>
-        <li>Bare feet over shoes, every time</li>
-        <li>Sworn enemy of clothing tags and microfiber</li>
-        <li>Part Scottish, part Filipino</li>
-        <li>Fan of esoteric theological conversations</li>
-        <li>Bachata dancer</li>
-        <li>Certified scuba diver</li>
-        <li>I have ADHD</li>
       </ul>
+      <button class="btn btn-secondary facts-more" id="factsMore" type="button" hidden>Show me three more</button>
       <p class="lede">…and a whole lot more. Ask me over breakfast.</p>
     </section>
   </main>
   <footer class="site-footer">
     <p>“Your kingdom come, Your will be done, on earth as it is in heaven.” Matthew 6:10</p>
-    <nav aria-label="Footer">
-      <a href="https://imm.edu/" target="_blank" rel="noopener">International Media Ministries</a>
-      <a href="https://agwm.org/" target="_blank" rel="noopener">AGWM</a>
-      <a href="/privacy/">Privacy</a>
+    <nav class="footer-nav" aria-label="Footer">
+      <a class="footer-logo" href="https://imm.edu/" target="_blank" rel="noopener"><img src="/assets/logos/imm-white.png" alt="International Media Ministries" width="1409" height="500"></a>
+      <a class="footer-logo" href="https://agwm.org/" target="_blank" rel="noopener"><img src="/assets/logos/agwm-white.png" alt="Assemblies of God World Missions" width="1061" height="313"></a>
+      <a class="footer-logo partner-logo--stacked" href="https://www.europemissions.org/" target="_blank" rel="noopener"><img src="/assets/logos/europe-white.png" alt="Europe Together" width="502" height="520"></a>
+      <a class="footer-text" href="/privacy/">Privacy</a>
     </nav>
   </footer>
+  <script>
+    // Shows 3 facts at random on every visit; the button deals a new 3.
+    (function () {
+      var FACTS = ["Proud nerd, geek and gamer", "Avid reader of fantasy, myths and legends", "Chef at heart", "World traveler: at least one night in all 50 states and 25 countries", "Lover of stories", "Coffee, tea and hot chocolate, all of them", "Going out for breakfast is my favorite", "Bare feet over shoes, every time", "Sworn enemy of clothing tags and microfiber", "Part Scottish, part Filipino", "Fan of esoteric theological conversations", "Bachata dancer", "Certified scuba diver", "I have ADHD"];
+      var list = document.getElementById('facts');
+      var btn = document.getElementById('factsMore');
+      var current = [];
+      function deal() {
+        var pool = FACTS.filter(function (f) { return current.indexOf(f) === -1; });
+        if (pool.length < 3) pool = FACTS.slice();
+        for (var i = pool.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = pool[i]; pool[i] = pool[j]; pool[j] = t; }
+        current = pool.slice(0, 3);
+        list.innerHTML = '';
+        current.forEach(function (f) { var li = document.createElement('li'); li.textContent = f; list.appendChild(li); });
+      }
+      deal();
+      btn.hidden = false;
+      btn.addEventListener('click', deal);
+    })();
+  </script>
   <script src="/js/give.js"></script>
 </body>
 </html>
