@@ -27,32 +27,43 @@
       <h1 class="page-title">Partnership</h1>
       <p class="lede">It’s only through the grace of God, and your love, hard work, prayer and financial support, that I’m able to go and do what God has called me to do. Thank you.</p>
     </div>
-    <div class="grid-3">
-      <section class="panel panel--give">
-        <h2>Give</h2>
+
+    <section class="panel panel--give give-panel" aria-labelledby="giveHeading">
+      <div class="give-copy">
+        <h2 id="giveHeading">Give</h2>
         <p>I’m a fully appointed missionary with Assemblies of God World Missions. Gifts through AG Giving can be tax-deductible.</p>
+        <div class="account">
+          <div>
+            <span class="account-label">Give to</span>
+            <span class="account-value">Sean Mills, account <span id="acct"></span></span>
+          </div>
+          <button class="btn btn-secondary account-copy" id="copyAcct" type="button">Copy account number</button>
+        </div>
+        <p class="account-status" id="copyStatus" role="status"></p>
+      </div>
+      <div class="give-actions">
+        <p>Monthly support is the backbone of missionary life, and every gift, one-time or monthly, makes a difference.</p>
         <a class="btn btn-primary" href="https://giving.ag.org/donate" target="_blank" rel="noopener">Give through AG Giving</a>
-      </section>
-      <section class="panel panel--pray">
-        <h2>Pray</h2>
-        <p>See my current prayer requests and the prayers God has already answered.</p>
-        <a class="btn btn-secondary" href="/pray/">Open prayer requests</a>
-      </section>
-      <section class="panel panel--touch" aria-labelledby="touchHeading">
-        <h2 id="touchHeading">Stay in touch</h2>
-        <form class="form" id="signupForm" novalidate>
-          <p class="hint">Get my newsletter, <em>Tilting at windMills</em>, by email. Unsubscribe anytime.</p>
-          <label for="suName">Name <span class="opt">(optional)</span></label>
-          <input id="suName" type="text" autocomplete="name" maxlength="100">
-          <label for="suEmail">Email</label>
-          <input id="suEmail" type="email" autocomplete="email" inputmode="email" maxlength="254" required>
-          <div class="hp" aria-hidden="true"><label for="suWebsite">Leave this empty</label><input id="suWebsite" type="text" tabindex="-1" autocomplete="off"></div>
-          <div id="suTurnstile"></div>
-          <button class="btn btn-secondary" id="suBtn" type="submit">Sign up</button>
-          <p class="status" id="suStatus" role="status"></p>
-        </form>
-      </section>
-    </div>
+        <p class="secure-note">Before AG Giving opens, you’ll see a quick note on choosing Monthly. AG Giving is the Assemblies of God’s official, secure giving site.</p>
+        <p class="secure-note give-help">Questions about a gift? Contact AG Contributor Services at <a href="mailto:contributions@ag.org">contributions@ag.org</a> or <a href="tel:+14178623420">1-417-862-3420</a>, and ask for Contributor Services for the Europe Region.</p>
+      </div>
+    </section>
+
+    <section class="panel panel--touch touch-panel" aria-labelledby="touchHeading">
+      <h2 id="touchHeading">Stay in touch</h2>
+      <form class="form" id="signupForm" novalidate>
+        <p class="hint">Get my newsletter, <em>Tilting at windMills</em>, by email. Unsubscribe anytime.</p>
+        <label for="suName">Name <span class="opt">(optional)</span></label>
+        <input id="suName" type="text" autocomplete="name" maxlength="100">
+        <label for="suEmail">Email</label>
+        <input id="suEmail" type="email" autocomplete="email" inputmode="email" maxlength="254" required>
+        <div class="hp" aria-hidden="true"><label for="suWebsite">Leave this empty</label><input id="suWebsite" type="text" tabindex="-1" autocomplete="off"></div>
+        <div id="suTurnstile"></div>
+        <button class="btn btn-secondary" id="suBtn" type="submit">Sign up</button>
+        <p class="status" id="suStatus" role="status"></p>
+      </form>
+    </section>
+
     <section class="intro" aria-labelledby="partnersHeading">
       <h2 class="heading" id="partnersHeading">Serving with</h2>
       <div class="partners">
@@ -70,6 +81,7 @@
       <a href="/privacy/">Privacy</a>
     </nav>
   </footer>
+  <script src="/js/give.js"></script>
   <script src="/js/config.js"></script>
   <script src="/js/forms.js"></script>
   <script>
@@ -106,6 +118,28 @@
           else if (e.message === 'bot_check' || e.message === 'bot_check_failed') fail('A quick security check didn’t finish. Press Sign up again.');
           else fail('That didn’t go through. Check your connection and try again.');
         }
+      });
+    })();
+  </script>
+  <script>
+    // The account number comes from /js/give.js.
+    (function () {
+      var ACCOUNT = window.MOM_ACCOUNT || '296210';
+      var acctEl = document.getElementById('acct');
+      var btn = document.getElementById('copyAcct');
+      var status = document.getElementById('copyStatus');
+      acctEl.textContent = ACCOUNT;
+      btn.addEventListener('click', async function () {
+        var ok = false;
+        try { await navigator.clipboard.writeText(ACCOUNT); ok = true; }
+        catch (e) {
+          try {
+            var t = document.createElement('textarea');
+            t.value = ACCOUNT; t.setAttribute('readonly', ''); t.style.position = 'absolute'; t.style.left = '-9999px';
+            document.body.appendChild(t); t.select(); ok = document.execCommand('copy'); document.body.removeChild(t);
+          } catch (e2) { ok = false; }
+        }
+        status.textContent = ok ? 'Copied. Paste it on AG Giving if it asks which missionary.' : 'Account ' + ACCOUNT + '. Copying didn’t work here, so please note it down.';
       });
     })();
   </script>

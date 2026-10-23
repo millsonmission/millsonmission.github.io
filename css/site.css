@@ -119,6 +119,40 @@ h1, h2, h3, p { margin: 0; }
 .facts li { padding: 14px 0; border-top: 1px solid var(--navy-line); color: var(--ivory-300); }
 
 
+/* ---------- Partnership: Give ---------- */
+.give-panel { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px 48px; padding: 40px; align-items: start; }
+.give-panel h2 { font-size: 44px; }
+.give-copy { display: flex; flex-direction: column; gap: 14px; }
+.give-copy p { flex-grow: 0; }
+.account { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; padding: 18px 20px; background: rgba(11, 14, 20, 0.45); border: 1px solid var(--burgundy-line); border-radius: var(--radius); }
+.account-label { display: block; font-size: 14px; color: var(--muted-400); }
+.account-value { display: block; font: 600 26px/1.2 var(--font-display); color: var(--ivory-100); }
+.account-value #acct { font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
+.account-copy { min-height: 44px; font-size: 15px; }
+.account-status { min-height: 1.4em; font-size: 15px; color: var(--muted-400); }
+.give-actions { display: flex; flex-direction: column; gap: 12px; }
+.give-actions .btn { width: 100%; }
+.give-actions .btn-primary { min-height: 60px; font-size: 18px; }
+.secure-note { font-size: 14px; color: var(--muted-400); }
+.touch-panel { max-width: 560px; }
+.give-actions p { color: #e0cfc6; }
+
+/* ---------- Give reminder pop-up ---------- */
+.give-dialog { width: min(560px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 0; border: 1px solid var(--brass-line); border-radius: var(--radius); background: var(--navy-700); color: var(--ivory-300); }
+.give-dialog::backdrop { background: rgba(5, 7, 11, 0.78); }
+.give-dialog-body { padding: 30px 30px 24px; display: flex; flex-direction: column; gap: 14px; font-size: 17px; }
+.give-dialog-title { font: italic 500 28px/1.2 var(--font-display); color: var(--brass-400); }
+.give-dialog-steps { margin: 0; padding-left: 1.3em; display: flex; flex-direction: column; gap: 10px; }
+.give-dialog-steps strong, .give-dialog-account strong { color: var(--ivory-100); font-weight: 500; }
+.give-dialog-account { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; padding: 14px 16px; background: rgba(11, 14, 20, 0.5); border: 1px solid var(--navy-line); border-radius: var(--radius); }
+.give-dialog-account .btn { min-height: 44px; font-size: 15px; }
+.give-dialog-status { min-height: 1.3em; font-size: 15px; color: var(--muted-400); }
+.give-dialog-actions { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; }
+.give-dialog-actions .btn { width: 100%; }
+.give-dialog-fine { font-size: 13px; color: var(--muted-400); }
+.give-dialog-fine a, .give-help a { color: var(--brass-400); white-space: nowrap; }
+@media (max-width: 480px) { .give-dialog-body { padding: 24px 20px 20px; } .give-dialog-actions { grid-template-columns: 1fr; } }
+
 /* ---------- Partners ---------- */
 .partners { display: flex; flex-wrap: wrap; gap: 28px 48px; align-items: center; }
 .partner-logo { display: inline-flex; align-items: center; min-height: 52px; padding: 4px 0; }
@@ -153,6 +187,8 @@ h1, h2, h3, p { margin: 0; }
   .doors { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 600px) {
+  .give-panel { padding: 26px 22px; }
+  .give-panel h2 { font-size: 36px; }
   body { font-size: 17px; }
   .site-header { padding: 16px 20px; }
   .page { padding: 40px 20px 64px; gap: 36px; }
