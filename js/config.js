@@ -6,7 +6,7 @@ window.PRAYER_CARD_CONFIG = {
   prayUrl:          "https://millsonmission.com/pray/",
   newsletterUrl:    "https://millsonmission.com/windmills/",
   privacyUrl:       "https://millsonmission.com/privacy/",
-  sendingAgencyUrl: "https://SENDING-AGENCY-URL-TBD",
+  sendingAgencyUrl: "https://agwm.org",
   immUrl:           "https://imm.edu/",
   assets: {
     videoHevc: "/assets/portrait-loop.mp4",
